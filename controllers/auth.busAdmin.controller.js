@@ -31,7 +31,7 @@ export const signup = async (req, res) => {
 export const login = async (req, res) => {
 	try {
 		const { email, password } = req.body;
-		const busAdmin = await BusAdmin.findOne({ email });
+		const busAdmin = await BusAdmin.findOne({ email }).populate("bus");
 		const isPasswordCorrect = await bcrypt.compare(password, busAdmin?.password || "");
 		
 		if (!BusAdmin || !isPasswordCorrect) {

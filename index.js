@@ -9,8 +9,6 @@ import { BusAdmin } from "./models/busAdmin.model.js";
 dotenv.config();
 const app =express()
 
-
-
 const port = process.env.PORT
 
 app.use(cors({
